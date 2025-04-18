@@ -17,7 +17,7 @@ while True:
 
     # Detect Faces
     face_locations, face_names = sfr.detect_known_faces(frame)
-    for face_loc, name in zip(face_locations, '''face_names'''):
+    for face_loc, name in zip(face_locations, face_names):
         y1, x2, y2, x1 = face_loc[0], face_loc[1], face_loc[2], face_loc[3]
 
         # Draw rectangle around the face
@@ -35,7 +35,7 @@ while True:
                 emotion = face_analysis[0]['dominant_emotion']
 
                 # Display the emotion on the frame
-                # cv2.putText(frame, emotion, (x1, y2 + 20), cv2.FONT_HERSHEY_DUPLEX, 0.8, (0, 0, 255), 2)
+                cv2.putText(frame, emotion, (x1, y2 + 20), cv2.FONT_HERSHEY_DUPLEX, 0.8, (0, 0, 255), 2)
 
     except Exception as e:
         print(f"Error analyzing frame: {e}")
